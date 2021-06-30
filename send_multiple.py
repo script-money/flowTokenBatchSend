@@ -14,6 +14,7 @@ import pandas as pd
 from config import Config
 import asyncio
 from pathlib import Path
+from datetime import date
 
 logger = logging.getLogger(__name__)
 ctx = Config()
@@ -44,7 +45,7 @@ async def send_multiple(addresses_arg: cadence.Dictionary):
         ).add_arguments(
             addresses_arg
         ).with_gas_limit(
-            999
+            9999
         ).with_envelope_signature(
             ctx.service_account_address,
             ctx.service_account_key_id,
@@ -65,7 +66,7 @@ async def main(path:str, total:float):
             df.to_records()
         )
     )
-    pd.DataFrame.from_records(distribution).to_csv('record.csv')
+    pd.DataFrame.from_records(distribution).to_csv(f'record-{date.today()}.csv')
     addresses_arg = cadence.Dictionary(
         list(map(lambda i:cadence.KeyValuePair(
                 cadence.Address.from_hex(i['key']), 
