@@ -20,7 +20,7 @@
             "address": "${TESTNET_ADDRESS}",
             "key": {
                 "type": "hex",
-                "index": "${TESTNET_KEY_ID}",
+                "index": 0,
                 "signatureAlgorithm": "${TESTNET_SIGN}",
                 "hashAlgorithm": "${TESTNET_HASH}",
                 "privateKey": "${TESTNET_PRIVATE_KEY}"
@@ -30,7 +30,7 @@
             "address": "${MAINNET_ADDRESS}",
             "key": {
                 "type": "hex",
-                "index": "${MAINNET_KEY_ID}",
+                "index": 3,
                 "signatureAlgorithm": "${MAINNET_SIGN}",
                 "hashAlgorithm": "${MAINNET_HASH}",
                 "privateKey": "${MAINNET_PRIVATE_KEY}"
