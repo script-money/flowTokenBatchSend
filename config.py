@@ -64,7 +64,7 @@ class Config(object):
                         ),
                         os.getenv('TESTNET_PRIVATE_KEY'),
                     )
-                    self.service_account_key_id: int = int(os.getenv('TESTNET_KEY_ID'))
+                    self.service_account_key_id: int = data["accounts"]["testnet-account"]["key"]["index"]
                 elif self.dev_env == 'mainnet':
                     self.service_account_address_str = os.getenv(
                         'MAINNET_ADDRESS')
@@ -80,7 +80,7 @@ class Config(object):
                         ),
                         os.getenv('MAINNET_PRIVATE_KEY'),
                     )
-                    self.service_account_key_id: int = int(os.getenv('MAINNET_KEY_ID'))
+                    self.service_account_key_id: int =  data["accounts"]["mainnet-account"]["key"]["index"]
         except Exception:
             log.warning(
                 f"Cannot open {config_location}, using default settings",
